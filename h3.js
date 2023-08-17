@@ -16,3 +16,14 @@ Array.prototype.myFilter = function (callBack, obj) {
 };
 
 
+// ex2
+
+function createDebounceFunction(callback, delay) {
+  let timerId;
+  return function (...args) {
+    clearTimeout(timerId);
+    timerId = setTimeout(() => {
+      callback(...args);
+    }, delay);
+  };
+}
