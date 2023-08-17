@@ -1,9 +1,6 @@
 // ex1
 
 Array.prototype.myFilter = function (callBack, obj) {
-  if (typeof callBack !== "function") {
-    throw new Error("Callback must be function");
-  }
   const newArray = [];
   const array = this;
 
@@ -12,14 +9,15 @@ Array.prototype.myFilter = function (callBack, obj) {
       newArray.push(array[i]);
     }
   }
+
   return newArray;
 };
-
 
 // ex2
 
 function createDebounceFunction(callback, delay) {
   let timerId;
+
   return function (...args) {
     clearTimeout(timerId);
     timerId = setTimeout(() => {
