@@ -4,14 +4,14 @@ function isString(str) {
 }
 
 function concatStrings(val1, separator) {
-  let result = isString(val1) ? val1 : "";
+  //   let result = isString(val1) ? val1 : "";
+
   if (!isString(separator)) {
     separator = "";
   }
 
   function innerFunction(val2) {
     if (isString(val2)) {
-      //checking valid inputs
       result += separator + val2;
     } else {
       console.log(result);
@@ -20,8 +20,15 @@ function concatStrings(val1, separator) {
     return innerFunction;
   }
 
-  return innerFunction;
+  if (isString(val)) {
+    return innerFunction;
+  }
+  console.log("");
+
+  //   return isString(val1) ? innerFunction : ;
 }
+
+concatStrings("123", " ")("cs")("d")(23)("s")();
 
 //ex2
 class Calculator {

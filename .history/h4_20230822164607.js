@@ -5,13 +5,13 @@ function isString(str) {
 
 function concatStrings(val1, separator) {
   let result = isString(val1) ? val1 : "";
+
   if (!isString(separator)) {
     separator = "";
   }
 
   function innerFunction(val2) {
-    if (isString(val2)) {
-      //checking valid inputs
+    if (isString(val2) && isString(val1)) {
       result += separator + val2;
     } else {
       console.log(result);
@@ -21,7 +21,10 @@ function concatStrings(val1, separator) {
   }
 
   return innerFunction;
+
 }
+
+concatStrings(1, " ")("cs")("d")(23);
 
 //ex2
 class Calculator {

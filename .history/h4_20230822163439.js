@@ -5,23 +5,25 @@ function isString(str) {
 
 function concatStrings(val1, separator) {
   let result = isString(val1) ? val1 : "";
+
   if (!isString(separator)) {
     separator = "";
   }
 
   function innerFunction(val2) {
     if (isString(val2)) {
-      //checking valid inputs
       result += separator + val2;
-    } else {
+      return innerFunction;
+    } else if (val2 === undefined) {
       console.log(result);
     }
-
-    return innerFunction;
   }
 
   return innerFunction;
 }
+
+concatStrings("123", " ")(23)("2")("fg d")();
+
 
 //ex2
 class Calculator {

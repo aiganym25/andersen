@@ -10,7 +10,7 @@ function concatStrings(val1, separator) {
   }
 
   function innerFunction(val2) {
-    if (isString(val2)) {
+    if (isString(val2) && isString(val1)) {
       //checking valid inputs
       result += separator + val2;
     } else {
@@ -22,6 +22,8 @@ function concatStrings(val1, separator) {
 
   return innerFunction;
 }
+
+concatStrings("1", " ")("cs")("d")(12);
 
 //ex2
 class Calculator {

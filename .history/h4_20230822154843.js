@@ -1,27 +1,24 @@
 // ex1
-function isString(str) {
-  return typeof str === "string";
-}
-
 function concatStrings(val1, separator) {
-  let result = isString(val1) ? val1 : "";
-  if (!isString(separator)) {
+  if (typeof separator !== "string") {
     separator = "";
   }
+  let result = val1;
 
   function innerFunction(val2) {
-    if (isString(val2)) {
-      //checking valid inputs
+    if (typeof val2 === "string") {
       result += separator + val2;
-    } else {
-      console.log(result);
     }
-
     return innerFunction;
   }
+  innerFunction.toString = function () {
+    console.log(result);
+  };
 
   return innerFunction;
 }
+
+console.log(concatStrings("first")("second")("third")());
 
 //ex2
 class Calculator {

@@ -1,19 +1,17 @@
 // ex1
-function isString(str) {
-  return typeof str === "string";
-}
-
 function concatStrings(val1, separator) {
   let result = isString(val1) ? val1 : "";
+
   if (!isString(separator)) {
     separator = "";
   }
 
   function innerFunction(val2) {
     if (isString(val2)) {
-      //checking valid inputs
       result += separator + val2;
-    } else {
+    }
+
+    if (!isString(val2)) {
       console.log(result);
     }
 
@@ -22,6 +20,12 @@ function concatStrings(val1, separator) {
 
   return innerFunction;
 }
+
+function isString(str) {
+  return typeof str === "string";
+}
+
+concatStrings(123)("value")(2)();
 
 //ex2
 class Calculator {

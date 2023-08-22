@@ -23,6 +23,8 @@ function concatStrings(val1, separator) {
   return innerFunction;
 }
 
+c;
+
 //ex2
 class Calculator {
   constructor(...args) {

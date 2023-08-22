@@ -1,27 +1,53 @@
 // ex1
+// function concatStrings(val1, separator) {
+//   //   if (!isString(val1)) {
+//   //     return;
+//   //   }
+//   let result = isString(val1) ? val1 : "";
+//   if (!isString(separator)) {
+//     separator = "";
+//   }
+
+//   //   let result = val1;
+
+//   function innerFunction(val2) {
+//     if (isString(val2)) {
+//       result += separator + val2;
+//     }
+
+//     if (!isString(val2)) {
+//       console.log(result);
+//     }
+
+//     return innerFunction;
+//   }
+
+//   return innerFunction;
+// }
+
+function concatStrings(initialValue, separator) {
+  let result = typeof initialValue === "string" ? initialValue : "";
+
+  function innerConcat(nextValue) {
+    if (typeof nextValue === "string") {
+      result += separator ? separator + nextValue : nextValue;
+    }
+
+    if (nextValue === undefined || nextValue === null) {
+      console.log(result);
+    }
+
+    return innerConcat;
+  }
+
+  return innerConcat;
+}
+
 function isString(str) {
   return typeof str === "string";
 }
 
-function concatStrings(val1, separator) {
-  let result = isString(val1) ? val1 : "";
-  if (!isString(separator)) {
-    separator = "";
-  }
-
-  function innerFunction(val2) {
-    if (isString(val2)) {
-      //checking valid inputs
-      result += separator + val2;
-    } else {
-      console.log(result);
-    }
-
-    return innerFunction;
-  }
-
-  return innerFunction;
-}
+concatStrings(123)("value")(2);
 
 //ex2
 class Calculator {

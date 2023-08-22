@@ -4,24 +4,29 @@ function isString(str) {
 }
 
 function concatStrings(val1, separator) {
-  let result = isString(val1) ? val1 : "";
-  if (!isString(separator)) {
-    separator = "";
-  }
-
-  function innerFunction(val2) {
-    if (isString(val2)) {
-      //checking valid inputs
-      result += separator + val2;
-    } else {
-      console.log(result);
+    let result = isString(val1) ? val1 : "";
+  
+    if (!isString(separator)) {
+      separator = "";
     }
-
-    return innerFunction;
+  
+    function innerFunction(val2) {
+      if (isString(val2)) {
+        result += separator + val2;
+        return innerFunction;
+      } else if (val2 === undefined) {
+        console.log(result);
+      }
+    }
+  
+    if (val1 === undefined) {
+      return result;
+    } else {
+      return innerFunction;
+    }
   }
 
-  return innerFunction;
-}
+concatStrings("123", " ")('cs')("d")(23)('s')();
 
 //ex2
 class Calculator {
