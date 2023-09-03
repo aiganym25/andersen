@@ -131,7 +131,6 @@ class Car {
   }
 
   start() {
-
     if (this.#isStarted) {
       throw new Error("Машина уже заведена");
     }
@@ -140,7 +139,6 @@ class Car {
   }
 
   shutDownEngine() {
-
     if (!this.#isStarted) {
       throw new Error("Машина ещё не заведена");
     }
@@ -149,7 +147,6 @@ class Car {
   }
 
   fillUpGasTank(amount) {
-
     if (typeof amount !== "number" || amount <= 0) {
       throw new Error("Неверное количество топлива для заправки");
     }
@@ -164,7 +161,6 @@ class Car {
   }
 
   drive(speed, hours) {
-    
     if (typeof speed !== "number" || speed <= 0) {
       throw new Error("Неверная скорость");
     }
